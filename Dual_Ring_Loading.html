@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dual Ring Loading - Sagar Developer</title>
+  <style type="text/css">
+    body {
+      text-align: center;
+      background: #efefef;
+    }
+
+    .container {
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      overflow: hidden;
+      margin-top: 200px;
+    }
+
+    .loader {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: translateZ(0) scale(1);
+      backface-visibility: hidden;
+      transform-origin: 0 0;
+    }
+
+    .loader div {
+      box-sizing: border-box !important;
+    }
+
+    .loader>div {
+      position: absolute;
+      width: 144px;
+      height: 144px;
+      top: 28px;
+      left: 28px;
+      border-radius: 50%;
+      border: 16px solid #000;
+      border-color: #fe718d transparent #fe718d transparent;
+      animation: loading 1s linear infinite;
+    }
+
+    .loader>div:nth-child(2) {
+      border-color: transparent;
+    }
+
+    .loader>div:nth-child(2) div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotate(45deg);
+    }
+
+    .loader>div:nth-child(2) div:before,
+    .loader>div:nth-child(2) div:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: -16px;
+      left: 48px;
+      background: #fe718d;
+      border-radius: 50%;
+      box-shadow: 0 128px 0 0 #fe718d;
+    }
+
+    .loader>div:nth-child(2) div:after {
+      left: -16px;
+      top: 48px;
+      box-shadow: 128px 0 0 0 #fe718d;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="loader">
+      <div></div>
+      <div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

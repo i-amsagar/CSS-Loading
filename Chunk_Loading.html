@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spinner Chunk Loading - Sagar Developer</title>
+  <style type="text/css">
+    body {
+      text-align: center;
+      background-color: #efefef;
+    }
+
+    .container {
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      overflow: hidden;
+      margin-top: 200px;
+    }
+
+    .loader {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: translateZ(0) scale(1);
+      backface-visibility: hidden;
+      transform-origin: 0 0;
+    }
+
+    .loader div {
+      box-sizing: content-box;
+    }
+
+    .loader>div {
+      animation: loader-r 4s linear infinite;
+      transform-origin: 100px 100px;
+    }
+
+    .loader>div>div {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      animation: loader-z 1s linear infinite;
+      transform-origin: 200px 200px;
+    }
+
+    .loader>div>div div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #00a1f1;
+      transform-origin: 50px 50px
+    }
+
+    .loader>div>div div:nth-child(1) {
+      left: 0px;
+      top: 0px;
+      animation: loader-p 1s linear infinite, loader-c 4s linear infinite;
+    }
+
+    .loader>div>div div:nth-child(2) {
+      left: 100px;
+      top: 0px;
+      animation: loader-p 1s linear infinite, loader-c 4s linear infinite;
+    }
+
+    .loader>div>div div:nth-child(3) {
+      left: 0px;
+      top: 100px;
+      animation: loader-p 1s linear infinite, loader-c 4s linear infinite;
+    }
+
+    .loader>div>div div:nth-child(4) {
+      left: 100px;
+      top: 100px;
+      transform: scale(1);
+      animation: loader-c 4s linear infinite
+    }
+
+    @keyframes loader-c {
+
+      0%,
+      25%,
+      50%,
+      75%,
+      100% {
+        animation-timing-function: cubic-bezier(0, 1, 0, 1)
+      }
+
+      0% {
+        background: #00a1f1;
+      }
+
+      25% {
+        background: #f65314;
+      }
+
+      50% {
+        background: #7cbb00;
+      }
+
+      75% {
+        background: #ffbb00;
+      }
+
+      100% {
+        background: #00a1f1;
+      }
+    }
+
+    @keyframes loader-r {
+
+      0%,
+      25%,
+      50%,
+      75%,
+      100% {
+        animation-timing-function: cubic-bezier(0, 1, 0, 1)
+      }
+
+      0% {
+        transform: scale(0.7000000000000001) rotate(180deg)
+      }
+
+      25% {
+        transform: scale(0.7000000000000001) rotate(270deg)
+      }
+
+      50% {
+        transform: scale(0.7000000000000001) rotate(360deg)
+      }
+
+      75% {
+        transform: scale(0.7000000000000001) rotate(450deg)
+      }
+
+      100% {
+        transform: scale(0.7000000000000001) rotate(540deg)
+      }
+    }
+
+    @keyframes loader-z {
+
+      0%,
+      50%,
+      100% {
+        animation-timing-function: cubic-bezier(1, 0, 0, 1)
+      }
+
+      0% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1)
+      }
+
+      100% {
+        transform: scale(.5)
+      }
+    }
+
+    @keyframes loader-p {
+
+      0%,
+      50%,
+      100% {
+        animation-timing-function: cubic-bezier(1, 0, 0, 1)
+      }
+
+      0% {
+        transform: scale(0)
+      }
+
+      50% {
+        transform: scale(1)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="loader">
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

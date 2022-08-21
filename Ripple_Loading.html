@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripple Loading - Sagar Developer</title>
+  <style type="text/css">
+    body {
+      text-align: center;
+      justify-content: center;
+      background: #efefef;
+    }
+
+    .Container {
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      overflow: hidden;
+      margin-top: 200px;
+    }
+
+    .loader {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: translateZ(0) scale(1);
+      backface-visibility: hidden;
+      transform-origin: 0 0;
+    }
+
+    .loader div {
+      box-sizing: content-box;
+    }
+
+    .loader div {
+      position: absolute;
+      border-width: 5px;
+      border-style: solid;
+      opacity: 1;
+      border-radius: 50%;
+      animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    }
+
+    .loader div:nth-child(1) {
+      border-color: #e90c59;
+      animation-delay: 0s;
+    }
+
+    .loader div:nth-child(2) {
+      border-color: #46dff0;
+      animation-delay: -0.5s;
+    }
+
+    @keyframes loading {
+      0% {
+        top: 96px;
+        left: 96px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+
+      100% {
+        top: 18px;
+        left: 18px;
+        width: 156px;
+        height: 156px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="Container">
+    <div class="loader">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+
+</html>
